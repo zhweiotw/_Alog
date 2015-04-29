@@ -120,7 +120,33 @@ public class BSTree<T extends Comparable<T>> {
 		}
 		return p.key;
 		 
+	} 
+	public BSNode<T> successors(BSNode<T> curn){
+		if(curn==null)return null;
+		if(curn.right!=null)
+			return min(curn);
+		BSNode<T> p=curn.parent;
+		while(p!=null&&curn.left==curn){
+			curn=p;
+			p=p.parent;
+		}
+		return p;
 	}
+	
+	public BSNode<T> remove(BSTree<T> bst,BSNode<T> rn){
+		if(rn==null)return null;
+		BSNode<T> x=null;
+		BSNode<T> y=null;
+		y=rn.left==null||rn.right==null?rn:successors(rn);
+		x=y.left==null?y.right:y.left;
+		if(y.parent!=null)x.parent=y.parent;
+		if(y.parent==null)bst.mroot=x;
+		else if(y==y.parent.left)y.parent.left=x;
+		else y.parent.right=x;
+		if(y!=rn)rn.key=y.key;
+		return y;
+	}
+	
 
 }
 
