@@ -139,7 +139,7 @@ public class BSTree<T extends Comparable<T>> {
 		BSNode<T> y=null;
 		y=rn.left==null||rn.right==null?rn:successors(rn);
 		x=y.left==null?y.right:y.left;
-		if(y.parent!=null)x.parent=y.parent;
+		if(x!=null)x.parent=y.parent;
 		if(y.parent==null)bst.mroot=x;
 		else if(y==y.parent.left)y.parent.left=x;
 		else y.parent.right=x;
