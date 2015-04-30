@@ -52,12 +52,20 @@ public class AVLTree<T extends Comparable<T>> {
 		while(pre!=null){
 			cmp=curn.key.compareTo(pre.key);
 			parent=pre;
+			parent.hight++;
 			if(cmp<0)pre=pre.left;
 			else pre=pre.right;
 		}
 		
 		
 		if(parent==null){avlt.mroot=curn;return;}
+		
+		cmp=curn.key.compareTo(parent.key);
+		if(cmp<0){
+			parent.left=curn;
+			
+		}
+
 		
 		
 	}
