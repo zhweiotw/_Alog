@@ -9,7 +9,9 @@ public static void main(String[] args) {
 	bst.insert(8);
 	bst.insert(2);
 	System.out.println(bst.max());
-	System.out.println(bst.preccessor(bst.getMroot().right));
+	System.out.println(bst.remove2(bst.search(8)).key);
+	bst.insert(6);
+	System.out.println();
 	
 }
 }

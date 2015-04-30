@@ -146,7 +146,37 @@ public class BSTree<T extends Comparable<T>> {
 		if(y!=rn)rn.key=y.key;
 		return y;
 	}
-	
-
+	public BSNode<T> remove2(BSNode<T> a){
+		BSNode<T> n=mroot;
+		BSNode<T> delN=null;
+		BSNode<T> tsg=null;
+		BSNode<T> tsgf=null;
+		while(n!=null){
+			tsgf=tsg;
+			tsg=n;
+			if(n.key.compareTo(a.key)==0)delN=n;
+			if(a.key.compareTo(n.key)<0)n=n.left;
+			else n=n.right;
+		}
+		if(delN!=null)
+			{
+			tsg.key=delN.key;
+			n=tsg.left!=null?tsg.left:tsg.right;
+			if(n!=null)n.parent=tsgf;
+			if(tsg.key.compareTo(mroot.key)==0)mroot=n;
+			else{
+				if(tsg==tsgf.left)tsgf.left=n;
+				else tsg.right=n;
+				
+			}
+			}
+		
+		
+		
+		
+		
+		return tsg;
+	}
+ 
 }
 
