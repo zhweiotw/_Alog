@@ -56,12 +56,12 @@ public class WIkIAVLTree {
 	}
 	
 	private Node rotateLeftRight(Node a){
-		a.left=rotateLeft(a.left);
+		rotateLeft(a.left);
 		return rotateRight(a);
 	}
 	
 	private Node rotateRightLeft(Node a){
-		a.right=rotateRight(a.right);
+		rotateRight(a.right);
 		return rotateLeft(a);
 	}
 	
