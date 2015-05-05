@@ -1,11 +1,15 @@
 package _Alog.tree;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 
 
 
 public class RedBlackTree<T extends Comparable<T>> {
 		
 	Node<T> root;
+	private Map treeMap=new TreeMap();
 	private static boolean RED=false;
 	private static boolean BLACK=true;
 	class Node<T extends Comparable<T>>{
